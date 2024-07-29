@@ -40,18 +40,20 @@ const ProductsProvider = ({ children }) => {
 
   const fetchProductsList = (category, id, product) => {
     const info = products.filter((p, i) => p?.category === category);
-    // console.log("info", info);
+
     return info;
   };
 
   const handleIsActive = (e, index) => {
+    console.log(index);
     const isChecked = e.target.checked;
     const productsInfo = products.map((p, i) => {
-      if (i === index) {
+      if (p?.id === index) {
         return { ...p, isActive: isChecked };
       }
       return p;
     });
+    console.log(productsInfo);
     setProducts(productsInfo);
   };
   return (

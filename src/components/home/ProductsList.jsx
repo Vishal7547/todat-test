@@ -13,7 +13,7 @@ const ProductsList = ({ category, id }) => {
 
     fetchProductsList,
   } = useProducts();
-
+  console.log(fetchProductsList(category, id));
   return (
     <Grid container spacing={2}>
       {fetchProductsList(category, id).map((product, index) => (
@@ -52,7 +52,7 @@ const ProductsList = ({ category, id }) => {
                 <Box>
                   <Switch
                     checked={product?.isActive}
-                    onChange={(event) => handleIsActive(event, index)}
+                    onChange={(event) => handleIsActive(event, product?.id)}
                     inputProps={{ "aria-label": "controlled" }}
                   />
                 </Box>
