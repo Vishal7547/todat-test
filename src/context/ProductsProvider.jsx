@@ -9,7 +9,6 @@ export const useProducts = () => {
 const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
-  const [productsList, setProductsList] = useState([]);
   const [isChanged, setIsChanges] = useState(false);
 
   const productsFetching = async () => {
@@ -41,8 +40,8 @@ const ProductsProvider = ({ children }) => {
 
   const fetchProductsList = (category, id, product) => {
     const info = products.filter((p, i) => p?.category === category);
-    console.log("info", info);
-    setProductsList(info);
+    // console.log("info", info);
+    return info;
   };
 
   const handleIsActive = (e, index) => {
@@ -53,8 +52,7 @@ const ProductsProvider = ({ children }) => {
       }
       return p;
     });
-    console.log(productsInfo, index);
-    setProductsList(productsInfo);
+    setProducts(productsInfo);
   };
   return (
     <ProductsContext.Provider
@@ -62,7 +60,6 @@ const ProductsProvider = ({ children }) => {
         products,
         category,
         handleIsActive,
-        productsList,
         fetchProductsList,
         isChanged,
       }}

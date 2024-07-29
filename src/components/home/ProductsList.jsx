@@ -9,20 +9,14 @@ import { deepOrange, deepPurple } from "@mui/material/colors";
 import { useProducts } from "../../context/ProductsProvider";
 const ProductsList = ({ category, id }) => {
   const {
-    products,
     handleIsActive,
-    productsList,
+
     fetchProductsList,
-    isChanged,
   } = useProducts();
-  //   console.log(products);
-  useEffect(() => {
-    fetchProductsList(category, id, products);
-  }, [isChanged]);
 
   return (
     <Grid container spacing={2}>
-      {productsList.map((product, index) => (
+      {fetchProductsList(category, id).map((product, index) => (
         <Grid
           item
           sm={12}
