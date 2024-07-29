@@ -116,7 +116,7 @@ export default function Sidebar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Test
           </Typography>
         </Toolbar>
       </AppBar>
